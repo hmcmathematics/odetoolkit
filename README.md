@@ -1,1 +1,4 @@
 # odetoolkit
+---
+permalink: /index.html
+---
