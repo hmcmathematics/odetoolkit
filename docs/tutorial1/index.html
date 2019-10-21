@@ -1,0 +1,117 @@
+<html>
+<head>
+  <title>
+    Tutorial 1: The Basics
+  </title>
+</head>
+
+<body>
+<font size = "+2">
+<p align = "center">Tutorial 1: The Basics
+</font>
+
+<hr>
+
+<p>
+<i> In this tutorial, we learn the basics of entering an ODE, specifying 
+    initial conditions, and plotting solution curves.
+</i>
+
+<hr>
+<br>
+
+<p> If at anytime, you would like to view examples of ODEs entered in ODEToolkit in the proper syntax, you may view the library of examples which is mentioned in the reference section entitled ODEToolkit Library. When ODE Toolkit first starts, it displays the window shown below. The text input box,labeled <i>Define ODE</i>, where ODEs are entered, is along the left-hand side of the screen. It is circled in green in the image below. Under it, we see the <i>Enter ODE</i> button, circled in red, which must be clicked when finished entering data in the text input box. Below this and circled in yellow is a text box labeled <i>Solve Span</i>. The value in this box tells ODE Toolkit how far to solve in time when the user clicks either the <i>Solve Forward</i> or <i>Solve Backward</i> buttons below, which are circled in purple. On the right side of the screen, circled in dark blue, is where solution curves are plotted.
+<p><a href = "shot1.gif"><img src="shot1.gif" width="600" height="450"></a>
+<p><font size = "-1"> Note: You may click on the above image to see a larger 
+                      version of it.
+   </font>
+
+<p> To <b>enter the following differential equation</b>, write into the text input box: 
+    <pre> x' = 2*t </pre>
+    This defines a system of ODE's with one state variable, <i>x</i>, defined
+    in terms of the independent variable <i>t</i>. Note that ODE Toolkit 
+    always treats <i>t</i> as the independent variable in an ODE, and, thus,
+    <i>t</i> need not (and cannot) be defined elsewhere in the text input box.
+	There are some other important restrictions on entering ODEs that should be noted. 
+	<ul>
+	<li>Each system of ODEs must be entered as a first order ODE in normal form</li>
+	<li>Each ODE must be entered on a separate line (or separated by a semicolon)</li>
+	<li>Each ODE must be entered using the syntax and function notation described in the “Supported mathematical operators” section and the “Functions built-in to ODE Toolkit” section in the online ODEToolkit documentation (if you use the wrong syntax, you will get an error message)</li>
+	<li>No capitalized letters may be used as state variables</li>
+	<li>ODEToolkit may not recognize text if it is copied and pasted form an outside source</li>
+	<li>Parameters can be used in ODEs as long as each parameter is defined on its own line (or separated by a semicolon). For example, you may enter the following:
+<pre>x' = a*2*t
+a=5</pre>
+	</li>
+	</ul>
+    Notice the explicit use of the multiplication symbol. ODEToolkit does not support implicit multiplication, so this is always 
+    necessary.  For example, the input <i>x'=2t</i> would be invalid.  Also
+    note that it is entered in <i>normal</i> form (i.e. <i>x' = f(t, x)</i>).
+    We could not, for example, have entered the equation as 
+    <i>x'-2*t=0</i>. You can also enter a comment in the Define ODE box by typing the characters /*, then your comment, and then the characters */. <p>Click on the <i>Enter ODE</i> button when you are 
+    finished entering the text.
+<p> Notice that the screen has now changed to produce the image below:
+<p><a href = "shot2.gif"><img src="shot2.gif" width="600" height="450"></a>
+<p><font size = "-1"> Note: You may click on the above image to see a larger 
+                      version of it.
+   </font>
+
+<p> The area under the the <i>Enter ODE</i> button now contains boxes, circled 
+    in green,  in which we can enter the initial conditions of the system. Note
+    that by default, 
+    all of the initial conditions are set to 0. Also note that now there are 
+    three tabs under the graph, circled in red and labeled <i>x-t</i>, 
+    <i>Multi-Graph</i>, and 
+    <i>Data</i>.  The only one we are interested in now is <i>x-t</i>, which 
+    shows a plot of the state variable <i>x</i> vs. the independent variable 
+    <i>t</i>.  The other tabs will be explored in a later tutorial. 
+<p> The scales for solution curves are, by default, set automatically. Fixed scales can be set as follows: right-click anywhere on the graph screen to display a drop-down panel, click on <i>scaling</i>, then <i>Set Window Ranges</i>. Then click off <i>Enable Auto-Scaling</i>, and enter scales for the x and y axes. 
+<p>Before starting to solve, click on the <i>Solver Option</i> button on the lower left side of the screen. ODEToolkit contains three solvers: Euler, RK, and Rosenbrock. Select one and note that the solver's parameters are set by default but can be changed. See the “Description of the available ODE solvers” section for more information on these solvers. 
+<p> Now we are ready to start plotting solutions. Note that the <i>Solve Span</i> is set by default to 10 and that the scaling option is by default set to automatic scaling.  Now clickthe button labeled
+    <i>Solve Forward</i> in the toolbar.  This tells the program to compute 
+    a solution curve forward in time, starting at the time entered in the 
+    box labeled <i>t:</i> and ending at this time plus the value entered in the
+    <i>Solve Span</i> box.  In this case, the initial time is 0 and the solve
+    span is 10, so the program computes a solution curve from <i>t = 0</i> to 
+    <i>t = 10</i>. Note that the autoscaling does not simply scale so that all of the curves in their entirety can be seen at once. The auto scaling does not do this because of situations in which solutions escape to infinity in finite time. 
+    Now click the <i>Solve Backwards</i> button in the toolbar. This tells the program 
+    to solve backward from the initial time by the amount specified in 
+    <i>Solve Span</i>.  In this case, it solves from <i>t = 0</i> to 
+    <i>t = -10</i>. 
+<p> To extend the curve in the forward direction, click the 
+    <i>Solve Forward</i> button again. This solves forward in time from the 
+    right end of the solution curve by the amount given in the 
+    <i>Solve Span</i> text box. In this case, it solves from <i>t = 10</i> to 
+    <i>t = 20</i>. Now we will manually set the window range as follows: Click on the <i>Graph Options</i> button at the top of the screen, then click on scaling, and then click on <i>set window range</i>. Set the x-axis window ranges to <i>-10</i> and <i>20</i> as this is the span over which we just solved. Set the y-axis range from <i>0</i> to <i>100</i>. The window should now look like this:
+<p><a href = "shot3.gif"><img src="shot3.gif" width="600" height="450"></a>
+<p><font size = "-1"> Note: You may click on the above image to see a larger 
+                      version of it.
+   </font>
+
+<p> Now that we have computed one solution curve, let's try changing the 
+    initial conditions and plotting some more curves. Initial conditions can be 
+    set in two ways: either by left-clicking on the graph at the desired point
+    while using the <i>Pick Initial Conditions</i> tool
+    or by typing values directly into the <i>Initial Conditions</i> text boxes located below <i>Enter ODE</i> and
+    above <i>Solve Span</i>. Note that the Pick Initial Conditions tool is the default mouse action. The selection <i>Pick Initial Conditions</i> does not work in 3D-graphs.
+
+<p> Let's try computing a solution curve
+    backward in time with the initial conditions <i>x = 20</i>, <i>t = 5</i> 
+    by typing <i>20</i> into the text box labeled <i>x:</i> and <i>5</i> into 
+    the box labeled <i>t:</i>. To make things interesting, we'll also change 
+    the solve span to 20 by typing <i>20</i> into the text box labeled 
+    <i>Solve Span</i>. Now click on the  <i>Solve Backwards</i> button. Note 
+    that the new solution curve starts at <i>t = 5</i> and ends at 
+    <i>t = -15</i> because the solve span was set to 20. Now click in the graph around the point (0,0.5), change the solve span to 10, and click solve forward. Now change the x-axis window ranges from -15 to 20 and the y-axis range from  -5 to 30. The window should now look  like this: 
+
+<p><a href = "shot4.gif"><img src = "shot4.gif" width="600" height="450"></a>
+<p><font size = "-1"> Note: You may click on the above image to see a larger 
+                      version of it.
+   </font>
+
+<p> Well, that's it for this tutorial!  I hope you've learned a lot and will 
+    take some time to explore the program a little more.  When you are ready, 
+    check out some of the other tutorials.  Happy ODE'ing!
+
+</body>
+</html>

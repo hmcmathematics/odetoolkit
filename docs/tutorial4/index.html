@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>
+    Tutorial 4: Using Phase Plots, Direction Fields, and User-Defined Functions
+  </title>
+</head>
+
+<body>
+<font size = "+2">
+Tutorial 4: Using Phase Plots, Direction Fields, and User-Defined Functions
+</font>
+
+<hr>
+<p>
+<i> In this tutorial, we learn how to work with phase plots, direction 
+    fields, and user-defined functions.
+</i>
+<hr>
+
+<p> Suppose, for example, that we want to explore the the following system 
+    of ODE's:
+<pre>
+    x' = -x + 10*y 
+    y'= -y - 10*x
+</pre>
+
+<p> We could enter the system into ODE Toolkit exactly as shown above, but
+    today let's be adventurous and define a function to help us. You
+    might notice that the right-hand sides of both equations are rather 
+    similar: they are both in the form <i>-w + 10*z</i>, where <i>w = x</i>
+    and <i>x = y</i> in the first equation and <i>w = y</i> and <i>z = -x</i> 
+    in the second equation.  Thus, we want to define our function, <i>f(w, z)
+    </i> such that it is equal to <i>-w + 10*z</i>.  Then, we can define 
+    <i>x'</i> and <i>y'</i> in terms of <i>f</i>.  To do this, enter the 
+    following text into ODE Toolkit:
+<pre>
+    x' = f(x, y) 
+    y'= f(y, -x)
+    f(w, z) = -w + 10*z
+</pre>
+
+<p> Note that to define <i>f</i>, we gave its name followed by a 
+    comma-separeted list of its arguments (in parenthesis) on the left-hand
+    side.  The right-hand side was a function of those arguments. User-defined
+    functions may make use of any parameters and functions defined elsewhere 
+    in the text-input box.  For instance, had we been so inclined, we could 
+    have entered the system as:
+<pre>
+    x' = f(x, y)
+    y'= f(y, -x)
+    f(w, z) = a*w + g(z)
+    g(x) = b*x
+    a = -1
+    b = 10
+</pre>
+
+<p> Note that the argument to function <i>g</i> is called <i>x</i>, which is
+    also a state variable of the system.  This is perfectly fine. The <i>x</i>
+    on the right-hand side of <i>g</i> refers to the argument, not the state
+    variable.
+
+<p> When you have entered the system, click the <i>Enter ODE</i> button. Now go to the Solver Options menu by clicking on the <i>Solver Options</i> button and select the Rosenbrock solver.  Now try
+    plotting a solution curve forward in time to <i>t = 10</i> from <i>t = 0, with the initial conditions
+    x = 1, y = 1</i> (if you are unsure how to do this, see 
+    <a href = "/docs/tutorial1/index.html">Tutorial 1</a>.  
+
+<p> Note that there are five tabs below the graph, labeled <i>x-t</i>,     
+    <i>y-t</i>, <i>y-x</i>, <i>Multi-Graph</i>, and <i>Data</i>. The Multi-Graph tab shows the x-t plot and the y-t plot on the same graph. To see a phase
+    plot of the solution curve, click on the <i>y-x</i> tab. Note that the 
+    axes have changed so that now <i>x</i> is plotted on the horizontal axis
+    and <i>y</i> is plotted on the vertical axis.  The graph should now look like this:
+<p><img src = "shot1.gif">
+
+<p> To see a direction field for the plot, right-click anywhere on the graph
+    and select <i>Direction Field</i> in the pop-up menu.  If you wish to 
+    change the direction field properties, right-click on the graph and select
+    <i>Direction Field Options</i> from the pop-up menu.  The following dialog
+    box will appear:
+<p><img src = "shot2.gif">
+
+<p> The sliders <i>Length</i> and <i>Density</i> allow you to change the length
+    of the direction field lines and how many field lines appear on the screen,
+    respectively.  Notice that as you slide them, the direction field is 
+    automatically updated.  The color of the direction field lines can be 
+    changed with the drop-down box labeled <i>Color</i>, and the 
+    <i>Line Type</i> option allows you to change the look of the lines. Select
+    <i>None</i> for straight lines, <i>Dots</i> for direction field lines with dots on the 
+    front, or <i>Arrows</i> for direction field lines with arrow heads.  The graph might now
+    look like this:
+<p><img src = "shot3.gif">
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>
+    Tutorial 6: Odds and Ends
+  </title>
+</head>
+
+<body>
+<font size = "+2">
+<p align = "center">
+   Tutorial 6: Odds and Ends
+</font>
+<hr>
+
+<p>
+<i>  In this tutorial, we polish our ODEToolkit skills by learning how to clear graphs, plot orbits, find equilibrium points, label graphs, and to get rid of grid lines. We will also discuss many of the options in the data tab. 
+</i>
+<hr>
+<br>
+
+<p>Let us start by defining the following system of ODEs:
+<pre>
+    x'=y
+    y'=-x
+</pre>
+<p> Enter the <i>Initial Conditions</i> t = 0, x = 0, and y = 1. Now click <i>Solve Forward</i>. To get rid of the curve that has been plotted, you can click on the <i>Clear All</i> button in the top right hand corner of the main screen. Now, click on <i>Solve Forward</i> again to make the graph reappear. Now, click on the <i>Graph Options</i> button near the top of the screen and deselect the <i>Grid Line</i> option. Note how the grid lines have disappeared. Turn the grid lines back on and then click on the y-x tab. Change the Mouse Action to plot orbits and click on the graph a few times in different places. Various concentric circles should have been plotted. These are the orbits starting at the locations you clicked on. Your graph should look like this. 
+
+<p><a href = "shot1.gif"><img src="shot1.gif" width="600" height="450"></a>
+
+<p>Since we are dealing with a planar autonomous system, first plot a direction field to get an idea of where the equilibrium points are, then use the <i>Mouse Action</i> (or right-click anywhere on the graph) to select <i>Find Equilibrium Point</i> and click anywhere on the graph. The equilibrium point should appear as a blue dot at the center of the graph. Now, click on the <i>Graph Options</i> button and then click on the <i>Labels</i> button below. You may now relabel the axes of the graph as well as the title. Now click on the <i>Data</i> tab. The ODEToolkit screen should now look something like the following. 
+
+<p><a href = "shot2.gif"><img src="shot2.gif" width="600" height="450"></a>
+
+<p>Notice that every orbit is numbered sequentially and that the equilibrium points are individually identified. Click on the most recent curve (orbit) that you plotted. As you can see, the initial conditions for the curve are shown at the top of the screen. Additionally, the data points that were solved for are displayed in columns. You can change the color of individual curves by clicking on the <i>Color</i> drop down menu in the bottom right hand corner of the screen. You can also deselect the <i>Visible</i> option above the <i>Color</i> menu to make curves invisible. If you click on the <i>View Solver Parameters</i> button, you can see which solver and what parameters (minimum/maximum step sizes and error tolerances) were used to generate that curve. You can also delete the curve by clicking on the <i>Delete Curve</i> button right below the <i>View Solver Parameters</i> button. If you are viewing the data for an equilibrium point, you can delete the equilibrium point by clicking on the <i>Delete equilibrium point</i> button in the same location where the <i>Delete Curve</i> button would be if you were viewing the data of a curve.  
+
+
+</body>
+</html>

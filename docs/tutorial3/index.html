@@ -1,0 +1,105 @@
+<html>
+<head>
+  <title>
+    Tutorial 3: Entering Second-Order ODE's and Using Parameters
+  </title>
+</head>
+<body>
+<font size = "+2">
+Tutorial 3: Entering Second-Order ODE's and Using Parameters
+</font>
+
+<hr>
+<p>
+<i> In the first tutorial, we learned how to enter a single first-order ODE
+    into ODE Toolkit.  In this tutorial, we greatly expand the types of
+    equations that we can work with to include second-order (and higher) ODE's.
+    In addition, we learn how to define and use parameters in our equations.
+    Note: In this tutorial, red text denotes invalid input to ODE Toolkit while
+    green text denotes valid input.
+</i>
+<hr>
+
+<p> Consider the following equation, used to model the motion of simple 
+    harmonic
+    oscillators, 
+<pre>
+    x'' + (omega^2)*x = 0
+</pre> 
+The state variable
+    <i>x</i> gives the system's displacement from its equilibrium point, and
+    the parameter <i>omega</i> specifies the angular frequency of the system's
+    oscillations about equilibrium. Your first inclination might be to enter 
+    the equation as-is, or, remembering that ODE's must be entered in normal 
+    form, you might try to enter it as <i>x'' = -omega^2*x</i>. Alas, it 
+    is not so simple.  ODE Toolkit only supports first-order systems in normal form, but
+    fortunately for us, almost any ODE of order <i>n</i> can always be written as an equivalent system of <i>n</i> first-order ODE's in normal form.  To enter the simple harmonic
+    oscillator equation, we introduce a new state
+    variable, <i>v</i>, defined as the first time derivative of <i>x</i>.
+    Thus, our second-order equation <i>x''+omega^2*x=0</i> can be converted
+    into a first-order equation by replacing <i>x''</i> with <i>v'</i>.
+    Now we have the following equivalent first-order system:
+<font color = "red">
+<pre> 
+    v' + omega^2*x = 0
+    v=x'
+</pre>
+</font>
+
+<p> Remember, however, that all ODE's must be entered in normal form, so to
+    enter the system into ODE Toolkit, you would type the following into the 
+    text input box:
+<font color = "red">
+<pre> 
+    v' = -omega^2*x
+    x' = v
+</pre>
+</font>
+<p> Note that the derivatives of the state variables are always given on the 
+    left-hand-side of the equations and that the right-hand-sides of the 
+    equations are functions of the state variables and <i>t</i> only.  
+
+<p> The above input is incomplete, however, since we have not defined 
+    <i>omega</i>.  To define <i>omega</i> and set it equal to pi, enter the 
+    following line anywhere in the text input box: 
+    <i>omega = pi</i>. Thus, the final input should look something like this:
+<font color = "green">
+<pre>
+    v' = -omega^2*x
+    x' = v
+    omega = pi
+</pre>
+</font>
+<p> There are three useful things to note about this input.  First, although 
+    each equation was entered on a separate line, they didn't have to be.  
+    Equations can be entered on the same line as long
+    as they are separated from each other by semi-colons.  Second, the order 
+    in which the equations are entered does not matter.  We could have just as 
+    well have defined <i>omega</i> first or defined <i>x'</i> before <i>v'</i>,
+    for instance.  Third, ODE Toolkit ignores all spaces between identifiers 
+    and operators, so the spaces around the equal signs are unnecessary.   
+    For example, we could have entered the system like this:
+
+<font color = "green">
+<pre>
+    omega=pi; v'= - omega ^ 2 * x;x' = v
+</pre>
+</font>
+
+<p> ...or like this:
+<font color = "green">
+<pre>
+    x' = v
+    omega = pi; v' = - omega ^ 2 * x
+</pre>
+</font>    
+
+<p> ...but not like this:
+<font color = "red">
+<pre>
+    v' = -omega^2*x   x' = v   omega = pi
+</pre>
+</font>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head> <title>ODE Solvers</title></head>
+<body>
+<h1>A Brief Overview of Solvers and Solver Options</h1>
+
+<hr>
+<i>Note: This document assumes that the reader is somewhat familiar with 
+   numerical methods used to solve ODE's.  For more information, consult 
+   a numerical analysis or scientific computing textbook.</i>
+<hr>
+
+<p><h2>Runge-Kutta-Fehlberg 4th/5th</h2>
+<p> Runge-Kutta_fehlberg 4th/5th is an adaptive stepsize algorithm.  It adjusts
+    the stepsize in such a way as to keep the absolute error in a step less 
+    than <i>Absolute Tol.</i> and the fractional error less than 
+    <i>Relative Tol.</i>  See 
+    <i>Numerical Recipies in C: The Art of Scientific Computing</i>, 
+    by Press, Teutolsky, Vetterling, and Flannery, for more information on the 
+    algorithm.
+<p> <ul>
+
+  <li> <i>Absolute Tol.</i>: RKF45 adjusts the stepsize in such a way as to keep the absolute error in a step less than <i>Absolute Tol</i>. 
+  </li>
+
+  <li> <i>Relative Tol.</i>: RKF45 adjusts the stepsize in such a way as to keep the fractional error in a step less than <i>Relative Tol</i>. 
+  </li>
+
+  <li> <i>Min Step Size </i>: The minimum stepsize that RKF45 should attempt to use. If the requested error tolerances cannot be achieved even when using the minumum stepsize, the solver will report an error. 
+  </li>
+  <li> <i>Max Step Size </i>: The maximum stepsize that RKF45 should attempt to use. 
+  </li>
+  <li> <i>Points/Time</i>: The number of points that should be graphed per unit time. 
+  </li>
+</ul>
+
+<br><br><br><br>
+
+<p><h2>Rosenbrock</h2>
+<p> The Rosenbrock method is an adaptive, semi-implicit, multi-stage method . The Rosenbrock method can be thought of as a generalization of the Runge-Kutta methods. This is done by adding more parameters into the equations for this method. As a result of this generalization, the Rosenbrock Solver can solve stiff differential equations. This is something that the Euler Method and the Runge-Kutta methods cannot do well. Like the RKF45 method described above, it adjusts the stepsize in such a way as to keep the absolute error in a step less than <i>Absolute Tol</i>. and the fractional error less than <i>Relative Tol</i>.
+<p> <b> Rosenbrock Options:</b>
+ See the description of the RKF45 options above.
+
+<br><br><br><br>
+
+<p><h2>Euler</h2>
+<p> The Euler algorithm is a very basic first-order, fixed step size ODE solver. It is included in ODEToolkit merely for demonstration purposes as it is inaccurate.   
+<p> <b> Euler Options:</b>
+<ul>
+  <li> <i>Points/Time</i>: Specified the number of output points per unit 
+       time that the solver should compute.  The stepsize is computed by 
+       dividing the solve span by <i>Points/Time</i>.
+</ul
+    
+
+</body>
+</html>

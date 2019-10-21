@@ -1,0 +1,104 @@
+<html>
+<head>
+  <title>
+    Tutorial 5: Defining Piecewise Functions and Changing Solver Options
+  </title>
+</head>
+
+<body>
+<font size = "+2">
+<p align = "center">
+   Tutorial 5: Defining Piecewise Functions and Changing Solver Options
+</font>
+<hr>
+
+<p>
+<i>  In this tutorial, we learn how to define piecewise continuous functions
+     and how to change solver options.  In addition, we provide a brief
+     description of the four solvers currently available for ODE Toolkit.
+</i>
+<hr>
+<br>
+
+<p> To enter a piecewise defined function into ODEToolkit, ODEToolkit uses the <i>piecewise</i> keyword, 
+    which takes an alernating sequence of conditions (i.e. boolean expressions)
+    and values (i.e. numerical expressions), followed by an optional additional
+    numerical expression.  To evaluate a piecewise expression, ODE Toolkit 
+    finds the first boolean expression that evaluates to <i>true</i> and 
+    uses the numerical expression that follows it as the result.  If none of
+    the boolean expressions evaluate to <i>true</i> and an optional extra
+    numerical 
+    expression was given, ODE Toolkit evaluates this expression as the result. 
+    Otherwise, it gives zero as the result.  Note that this is the same syntax
+    used by <i>Maple</i>.
+
+<p> Let's explore the following system of ODE's:
+<pre>
+    x' = -5.6*x + 48*pulsep(t, 1/48, 1/2)
+    y' = 5.6*x - 0.7*y
+</pre>
+where the function pulsep is defined by
+<p><img src = "pulsep.gif">
+
+<p> The function <i>pulsep</i> would be entered as:
+<pre>
+    pulsep(t, w, p) = piecewise(t % p < w, 1)
+</pre>
+
+<font size = "-1">
+<p> Note the use of the percent size as the modulus operator.  A complete list
+    of operators supported in ODE Toolkit can be found 
+    <a href = "/docs/operators.html">here</a>.  You might also notice that 
+    <i>pulsep</i> is also just a square wave, so we could have used the 
+    <i>sqw</i> function instead of <i>piecewise</i>.  A complete list of 
+    built-in functions can be found <a href = "/docs/functions.html">here</a>.
+</font>
+
+<p> E. Spitznagel presented this system to a Workshop on Teaching ODE's with Computer
+    Experiments at Harvey Mudd College in 1992.  The system models the 
+    transport of a drug in the body, where <i>x'</i> is the rate of diffusion 
+    of the drug into the bloodstream and <i>y</i> is the concentration of the 
+    drug in the bloodstream.  Time, <i>t</i> is measured in days.  The patient
+    recieves a dose of the medication every 12 hours, and the dose is released
+    uniformly over a 30 minute span of time, modeled by the function
+    <i>pulsep(t, w, p)</i>.  The argument <i>p</i> indicates the period of the
+    pulse, which is of unit height for the first <i>w</i> days of the pulse and
+    "off" ( = zero) for the rest of the time. 
+
+<p> To enter this system into ODE Toolkit, we would type the following
+    into the text-input box and click <i>Enter ODE</i> when we are done:
+<pre>
+    x' = -5.6*x + 48*pulsep(t, 1/48, 1/2)
+    y' = 5.6*x - 0.7*y
+    pulsep(t, w, p) = piecewise(t % p < w, 1)
+</pre>
+
+<p> Now make sure that all of the initial conditions are set to zero and change
+    the <i>Solve Span</i> to 6 (if you are unsure how to do this, see 
+    <a href = "/docs/tutorial1/index.html">Tutorial 1</a>). Note that the RK 4/5 solver is the default solver. Now click the <i>Solve Forward</i> button and click on the y-t tab. ODEToolkit now shows the following display.
+
+<p><a href = "shot1.gif"><img src="shot1.gif" width="600" height="450"></a>
+
+<p> Now let's try changing the maximum stepsize and computing a new solution
+    curve.  Enter <i>0.00005</i> into the <i>Max. Step Size</i> textbox in the Solver Options menu under the <i>Runge-Kutta Solver<i>. Recall that you can get to this menu by clicking on the <i>Solver Options</i> button in the bottom left hand corner of ODEToolkit. Now click <i>Solve Forward</i>.  Notice how the new solution curve looks 
+    dramatically different from the old one, even though they should represent
+    the solution to the same initial value problem. This is illustrated in the
+    following screenshot:
+<p><a href = "shot2.gif"><img src="shot2.gif" width="600" height="450"></a>
+
+<p> Here we see a drawback of variable stepsize solvers like RKF45.  When
+    dealing with driving terms that have sudden, short periods of rapid change (like in this example, due to the square wave <i>pulsep</i> function),
+    we must be careful not to set the maximum stepsize too high.  When 
+    computing the first portion of the solution curve, the solver was able to achieve the 
+    desired accuracy using the maximum stepsize, so it was happily computing 
+    along when suddenly <i>pulsep</i> changed, dramatically changing <i>x'</i>.
+    The length of time that <i>pulsep</i> was on during each period was 1/48 (
+    approximately 0.0208), but the maximum stepsize was 0.05, so the solver
+    completely missed some of the jumps in <i>pulsep</i>.  When we changed the 
+    maximum stepsize to <i>0.00005</i>, a significantly smaller time interval 
+    than the jumps in <i>pulsep</i>, we obtained a much more accurate solution
+    curve.
+    
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head> <title>Running ODEToolkit</title></head>
+<body>
+<h1>Running ODEToolkit</h1>
+<h2>Requirements</h2>
+<p>ODEToolkit requires Java 6 to run. You can download Java at <a href="http://java.com/en/download/index.jsp">http://java.com/en/download/index.jsp</a>. The
+recommended amount of heap space memory given to ODEToolkit is at least 256MB. To configure
+the amount of memory allowed for ODEToolkit, please see the information on running ODEToolkit
+from Java Archive below.
+<h2>Running ODEToolkit from Java Web Start (.jnlp file)</h2>
+<p>In Windows and Macintosh, you can run ODEToolkit from Java Web Start by opening the link on the
+website, or double-clicking at .jnlp file. If the system asks for permission to run ODEToolkit, simply
+allow. In Linux, sometimes Java Web Start is not automatically set as a default program to run .jnlp
+file. If this is the case, please try to run using the command line.
+
+<p>To run using the command line, first navigate to the bin folder of java. (If you have trouble locating this folder, try typing "locate javaws" in the command line. This should give you the path.) Then use the command 
+<pre>
+    javaws &lt;webstart URL&gt;
+</pre>
+where &lt;webstart URL&gt; is the URL of the Java Web Start (.jnlp) file.
+<p>If you are still having trouble, please try downloading the .jar file instead.
+
+
+<h2>Running ODEToolkit from Java Archive (.jar file)</h2>
+<p>In Windows and Macintosh, you can run ODEToolkit from Java Archive file by opening the link on
+the website, or double-clicking at .jnlp file. If the system asks for permission to run ODEToolkit,
+simply allow. In Linux, generally Java is not automatically set as a default program to run .jnlp file. If
+this is the case, please run using command line.
+
+<p>Please note that running Java Archive directly may limit the memory allocated for the program. To
+fix this problem, you need to make sure that the program is not unblocked by the operating system, by configuring the property of the Java Archive (.jar) file. In Windows, please right-click at the .jar file, then select Properties. If the program is blocked, there will be an "unblock" button - click it then click OK, and double-click at ODEToolkit to run as usual.
+
+<p>Alternative, you can run ODEToolkit using command line. To run using command line, first navigate to the bin folder of java. Then use the command line
+<pre>
+    java -jar &lt;memory option&gt; &lt;jar file&gt; &lt;ode file option&gt;
+</pre>
+Following is the description of each component of the command line:
+<ul>
+  <li>&lt;memory option> is the amount of heap memory given for ODEToolkit. For example,
+substitute &lt;memory option&gt; with -Xmx512m for 512 MB of memory, or -Xmx1G for 1GB or
+memory. The recommended amount of memory is at least 256 MB.</li>
+  <li>&lt;jar file&gt; is the path to the Java Archive (.jar) file.</li>
+  <li>&lt;ode file option&gt; is optional. It can be replaced with -urlpath &lt;ode file URL&gt; so that it
+automatically open the ode workspace file located at the URL given by &lt;ode file URL&gt;.</li>
+
+</ul>
+
