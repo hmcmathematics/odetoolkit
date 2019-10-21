@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://odetoolkit.hmc.edu/downloads"
+  href="ODEToolkit.jnlp">
+
+  <information>
+    <title>ODEToolkit Webstart</title>
+    <vendor>Community of Ordinary Differential Equations Educators</vendor>
+    <homepage href="http://odetoolkit.hmc.edu/"/>
+    <description>ODEToolkit</description>
+    <description kind="short">A tool for solving ordinary differential equations</description>
+    <offline-allowed/>
+  </information>
+
+  <security>
+    <all-permissions/>
+  </security>
+
+  <resources>
+    <j2se version="1.6+"/>
+    <jar href="ODEToolkit.jar" main="true"/>
+  </resources>
+
+  <application-desc main-class="launch.ODEToolkit"/>
+
+</jnlp>

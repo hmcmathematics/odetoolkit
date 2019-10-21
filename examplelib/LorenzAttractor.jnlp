@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://odetoolkit.math.hmc.edu/examplelib"
+  href="LorenzAttractor.jnlp">
+
+  <information>
+    <title>ODEToolkit Webstart</title>
+    <vendor>CODEE</vendor>
+    <homepage href="http://odetoolkit.hmc.edu/"/>
+    <description>ODEToolkit</description>
+    <description kind="short">A tool for solving ordinary differential equations</description>
+    <offline-allowed/>
+  </information>
+
+  <security>
+    <all-permissions/>
+  </security>
+
+  <resources>     
+    <jar href="http://odetoolkit.hmc.edu/downloads/ODEToolkit.jar"/>   
+    <j2se version="1.6+"
+	  href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/castor-1.0.1-xml.jar"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/commons-logging.jar"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/Jama-1.0.2.jar"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/jmathplot.jar"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/swing-layout-1.0.jar"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/swing-worker-1.2.jar"/>
+    <jar href="http://odetoolkit.hmc.edu/downloads/xerces-J_1.4.0.jar"/>
+  </resources>
+
+  <application-desc main-class="launch.ODEToolkit">
+    <argument>-urlpath</argument>
+    <argument>http://odetoolkit.math.hmc.edu/examplelib/LorenzAttractor.ode</argument>
+  </application-desc>
+
+</jnlp>

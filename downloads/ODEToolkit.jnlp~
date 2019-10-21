@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://odetoolkit.hmc.edu/downloads"
+  href="ODEToolkit.jnlp">
+
+  <information>
+    <title>ODEToolkit Webstart</title>
+    <vendor>Community of Ordinary Differential Equations Educators</vendor>
+    <homepage href="http://odetoolkit.hmc.edu/"/>
+    <description>ODEToolkit</description>
+    <description kind="short">A tool for solving ordinary differential equations</description>
+    <offline-allowed/>
+  </information>
+
+  <security>
+    <all-permissions/>
+  </security>
+
+  <resources>
+    <j2se version="1.6+"/>
+    <jar href="ODEToolkit.jar" main="true"/>
+    <jar href="castor-1.0.1-xml.jar"/>
+    <jar href="commons-logging.jar"/>
+    <jar href="Jama-1.0.2.jar"/>
+    <jar href="jmathplot.jar"/>
+    <jar href="swing-layout-1.0.jar"/>
+    <jar href="swing-worker-1.2.jar"/>
+    <jar href="xerces-J_1.4.0.jar"/>
+  </resources>
+
+  <application-desc main-class="launch.ODEToolkit"/>
+
+</jnlp>
